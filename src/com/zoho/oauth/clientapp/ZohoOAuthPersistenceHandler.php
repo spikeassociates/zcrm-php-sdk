@@ -21,7 +21,9 @@ class ZohoOAuthPersistenceHandler implements ZohoOAuthPersistenceInterface
 			$result=mysqli_query($db_link, $query);
 			if(!$result)
 			{
-				OAuthLogger::severe("OAuth token insertion failed: (" . $db_link->errno . ") " . $db_link->error);
+				//OAuthLogger::severe("OAuth token insertion failed: (" . $db_link->errno . ") " . $db_link->error);
+				global $log;
+				$log->fatal("OAuth token insertion failed: (" . $db_link->errno . ") " . $db_link->error);
 			}
 			
 		}
